@@ -72,6 +72,9 @@ export default {
       src: '~/plugins/chart.js',
       mode: 'client'
     },
+    {
+      src: '~/plugins/mixins.js'
+    },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
