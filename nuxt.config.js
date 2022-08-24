@@ -1,4 +1,10 @@
 export default {
+  loading: {
+    color: 'white',	
+// <-- color
+    height: '5px'	
+// <-- height
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxtecommerce',
