@@ -8,10 +8,10 @@ export default {
   ssr: true,
 
   loading: {
-    color: 'white',	
-// <-- color
-    height: '5px'	
-// <-- height
+    color: 'white',
+    // <-- color
+    height: '5px'
+    // <-- height
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -47,9 +47,13 @@ export default {
         href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
       },
     ],
-    script: [
-      { src: '/js/coreui.bundle.min.js' }, 
-      { src: 'https://app.sandbox.midtrans.com/snap/snap.js', 'data-client-key': 'paste_client_Key_midtrans_disini' }, 
+    script: [{
+        src: '/js/coreui.bundle.min.js'
+      },
+      {
+        src: 'https://app.sandbox.midtrans.com/snap/snap.js',
+        'data-client-key': 'paste_client_Key_midtrans_disini'
+      },
     ]
   },
 
@@ -60,15 +64,13 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-  ],
+  buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -76,7 +78,74 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    //https://dev.auth.nuxtjs.org/
+    '@nuxtjs/auth-next',
   ],
+  auth: {
+    strategies: {
+  
+        //strategy "admin"
+        admin: {
+          scheme: 'local',
+          token: {
+            property: 'token',
+            required: true,
+            type: 'Bearer'
+          },
+          user: {
+            property: 'user',
+            // autoFetch: true
+          },
+          endpoints: {
+            login: {
+              url: '/api/admin/login',
+              method: 'post',
+              propertyName: 'token'
+            },
+            logout: {
+              url: '/api/admin/logout',
+              method: 'post'
+            },
+            user: {
+              url: '/api/admin/user',
+              method: 'get',
+              propertyName: 'user'
+            }
+          },
+        },
+  
+        //strategy "customer"
+        customer: {
+          scheme: 'local',
+          token: {
+            property: 'token',
+            required: true,
+            type: 'Bearer'
+          },
+          user: {
+            property: 'user',
+            // autoFetch: true
+          },
+          endpoints: {
+            login: {
+              url: '/api/customer/login',
+              method: 'post',
+              propertyName: 'token'
+            },
+            logout: {
+              url: '/api/customer/logout',
+              method: 'post'
+            },
+            user: {
+              url: '/api/customer/user',
+              method: 'get',
+              propertyName: 'user'
+            }
+          },
+        },
+  
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -84,6 +153,5 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {}
 }
