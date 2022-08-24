@@ -6,7 +6,7 @@ export default function({ $auth, redirect }) {
     }
 
     //check admin role
-    if($auth.strategy.name != "admin") {
+    if($auth.strategy.name != "adminbesar") {
         return redirect('/admin/login')
     } else {
         return

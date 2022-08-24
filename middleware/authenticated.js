@@ -4,7 +4,7 @@ export default function({ $auth, redirect }) {
     if($auth.loggedIn) {
 
         //check role admin
-        if($auth.strategy.name == "admin") {
+        if($auth.strategy.name == "adminbesar") {
 
             return redirect('/admin/dashboard')
 

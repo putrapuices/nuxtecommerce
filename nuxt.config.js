@@ -98,7 +98,7 @@ export default {
     strategies: {
 
       //strategy "admin"
-      admin: {
+      adminbesar: {
         scheme: 'local',
         token: {
           property: 'token',

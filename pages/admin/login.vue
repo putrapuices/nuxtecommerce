@@ -80,7 +80,7 @@
     methods: {
       async login() {
         
-        await this.$auth.loginWith('admin', {
+        await this.$auth.loginWith('adminbesar', {
             data: {
               email: this.user.email,
               password: this.user.password
